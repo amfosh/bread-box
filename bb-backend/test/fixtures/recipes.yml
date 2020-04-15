@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uri: MyString
+  label: MyString
+  image: MyString
+  source: MyString
+  url: MyString
+  yield: MyString
+  ingredient_lines: MyString
+
+two:
+  uri: MyString
+  label: MyString
+  image: MyString
+  source: MyString
+  url: MyString
+  yield: MyString
+  ingredient_lines: MyString
