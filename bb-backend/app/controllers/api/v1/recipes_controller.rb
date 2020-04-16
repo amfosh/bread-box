@@ -11,6 +11,11 @@ class Api::V1::RecipesController < ApplicationController
     render json: @recipe, status: 200
   end
 
+  def create
+
+
+  end
+
 #   def create
 #     @recipe = Recipe.new(recipe_params)
 
@@ -37,11 +42,6 @@ class Api::V1::RecipesController < ApplicationController
 
   private
   
-  def fetch(url)
-    req = open(url)
-    body = req.read
-    render json: body 
-  end
     # Use callbacks to share common setup or constraints between actions.
     # def set_recipe
     #   @recipe = Recipe.find(params[:id])

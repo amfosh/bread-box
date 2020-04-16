@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react"
+// import logo from './logo.svg';
 import './App.css';
+// import { connect } from 'react-redux';
+// import { fetchRecipes } from './actions/fetchRecipes'
 
-function App() {
-  return (
+class App extends Component {
+
+  componentDidMount() {
+    fetch('https://api.edamam.com/search?q=bread&app_id=dda883c5&app_key=467f0304c54cc387428ad8336e5231e8')
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
+
+  render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Hi
     </div>
-  );
+  )};
 }
-
-export default App;
+export default App
