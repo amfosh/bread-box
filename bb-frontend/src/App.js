@@ -15,9 +15,7 @@ class App extends Component {
 
   render() {
     return (
-    <div className="App">
-      Hi
-    </div>
+      "BreadBox"
   )};
 }
 export default App
