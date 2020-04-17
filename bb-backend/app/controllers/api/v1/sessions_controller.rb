@@ -27,7 +27,7 @@ class Api::V1::SessionsController < ApplicationController
         session.clear
         render json: {
             notice: "Logged out."
-        }
+        }, status: 200
     end
 
 end
