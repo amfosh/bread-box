@@ -1,10 +1,16 @@
 class Api::V1::RecipesController < ApplicationController
 
   def index
+    if logged_in?
 
-    recipes = Recipe.all
+    @recipes = current_user.recipes
 
-    render json: recipes, status: 200
+    render json: @recipes, status: 200
+    else 
+      render json: {
+        error: "You must be logged in to see that!"
+      }
+    end
   end
 
   def show
