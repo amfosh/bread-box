@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "/api/v1/login", to: "sessions#create"
+  post "/api/v1/login", to: "api/v1/sessions#create"
+  get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
   resources :favorites
   resources :recipes
   namespace :api do

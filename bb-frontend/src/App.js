@@ -2,16 +2,13 @@ import React, { Component } from "react"
 // import logo from './logo.svg';
 import './App.css';
 import Login from "./components/Login"
-// import { connect } from 'react-redux';
-// import { fetchRecipes } from './actions/fetchRecipes'
+import { connect } from 'react-redux';
+import { getCurrentUser } from './actions/currentUser'
 
 class App extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/users/1')
-    .then(res => {
-      return res.json()
-    })
+    this.props.getCurrentUser()
   }
 
   render() {
@@ -19,4 +16,4 @@ class App extends Component {
       <Login/>
   )};
 }
-export default App
+export default connect(null, {getCurrentUser})(App);
