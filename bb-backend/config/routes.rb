@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/api/v1/login", to: "sessions#create"
   resources :favorites
   resources :recipes
   namespace :api do
