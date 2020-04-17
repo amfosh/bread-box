@@ -7,19 +7,9 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    fetch('https://api.edamam.com/search?q=bread&app_id=dda883c5&app_key=467f0304c54cc387428ad8336e5231e8')
+    fetch('http://localhost:3000/api/v1/users/1')
     .then(res => {
       return res.json()
-    })
-    .then(data => 
-      {return fetch('https://localhost:3000', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(data) 
-      })
-    })
-    .then(railsResponse => {
-      console.log(railsResponse.text());
     })
   }
 
