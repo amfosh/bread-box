@@ -33,6 +33,7 @@ export const login = credentials => {
             alert(res.error)
         } else { 
             dispatch(setCurrentUser(res.data))
+            dispatch(getUserRecipes())
             dispatch(resetLoginForm())
         } 
     })

@@ -19,7 +19,7 @@ export const getUserRecipes = () => {
             if (res.error) {
             alert(res.error)
         } else { 
-            dispatch(setUserRecipes())
+            dispatch(setUserRecipes(res.data))
         } 
     })
     .catch(console.log)
