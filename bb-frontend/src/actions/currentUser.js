@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm'
+import { resetSignupForm } from './signupForm'
 import { getUserRecipes } from './userRecipes'
 
 //sync
@@ -67,6 +68,35 @@ export const getCurrentUser = () => {
         } else { 
             dispatch(setCurrentUser(res.data))
             dispatch(getUserRecipes())
+        } 
+    })
+    .catch(console.log)
+    }
+}
+
+export const signup = credentials => {
+
+    return dispatch => {
+        const userInfo = {
+            user: credentials
+        }
+        dispatch(clearCurrentUser())
+        return fetch("http://localhost:3000/api/v1/signup", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.error) {
+            alert(res.error)
+        } else { 
+            dispatch(setCurrentUser(res.data))
+            dispatch(getUserRecipes())
+            dispatch(resetSignupForm())
         } 
     })
     .catch(console.log)

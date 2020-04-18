@@ -20,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Logout/>
         <NavBar/>
         <Router>
           <Route exact path='/login' component={Login}/>
