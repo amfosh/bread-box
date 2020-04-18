@@ -1,4 +1,5 @@
 import { resetLoginForm } from './loginForm'
+import { getUserRecipes } from './userRecipes'
 
 //sync
 export const setCurrentUser = user => {
@@ -32,7 +33,7 @@ export const login = credentials => {
             alert(res.error)
         } else { 
             dispatch(setCurrentUser(res.data))
-            dispatch(resetLoginForm)
+            dispatch(resetLoginForm())
         } 
     })
     .catch(console.log)
@@ -64,6 +65,7 @@ export const getCurrentUser = () => {
             alert(res.error)
         } else { 
             dispatch(setCurrentUser(res.data))
+            dispatch(getUserRecipes())
         } 
     })
     .catch(console.log)
