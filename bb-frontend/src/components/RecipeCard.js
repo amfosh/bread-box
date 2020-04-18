@@ -1,9 +1,12 @@
-// import React from 'react'
+import React from 'react'
 
-// const RecipeCard = ({ recipe }) => {
-//     return (
-//         <p>{recipe.attributes.label}</p>
-//     )
-// }
+const RecipeCard = ({ recipe }) => {
+    return (
+        <div>{recipe.attributes.label}
+        {recipe.attributes.image}
+        {recipe.attributes.yield}
+        {recipe.attributes.lines}</div>
+    )
+}
 
-// export default RecipeCard
+export default RecipeCard
