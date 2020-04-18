@@ -80,7 +80,6 @@ export const signup = credentials => {
         const userInfo = {
             user: credentials
         }
-        dispatch(clearCurrentUser())
         return fetch("http://localhost:3000/api/v1/signup", {
             credentials: "include",
             method: "POST",
