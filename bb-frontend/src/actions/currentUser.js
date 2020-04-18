@@ -1,3 +1,5 @@
+import { resetLoginForm } from './loginForm'
+
 //sync
 export const setCurrentUser = user => {
     return {
@@ -25,11 +27,12 @@ export const login = credentials => {
             body: JSON.stringify(credentials)
         })
         .then(res => res.json())
-        .then(user => {
-            if (user.error) {
-            alert(user.error)
+        .then(res => {
+            if (res.error) {
+            alert(res.error)
         } else { 
-            dispatch(setCurrentUser(user))
+            dispatch(setCurrentUser(res.data))
+            dispatch(resetLoginForm)
         } 
     })
     .catch(console.log)
@@ -56,11 +59,11 @@ export const getCurrentUser = () => {
             },
         })
         .then(res => res.json())
-        .then(user => {
-            if (user.error) {
-            alert(user.error)
+        .then(res => {
+            if (res.error) {
+            alert(res.error)
         } else { 
-            dispatch(setCurrentUser(user))
+            dispatch(setCurrentUser(res.data))
         } 
     })
     .catch(console.log)
