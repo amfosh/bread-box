@@ -18,8 +18,8 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-
-
+    # recipe = Recipe.new(recipe_params)
+    # recipe.image ||= "../assets/images/bread-default.jpg"
   end
 
 #   def create
