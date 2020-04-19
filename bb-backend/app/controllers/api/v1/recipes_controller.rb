@@ -19,17 +19,18 @@ class Api::V1::RecipesController < ApplicationController
 
   def create
     recipe = Recipe.new(recipe_params)
-    recipe.image ||= "../assets/images/bread-default.jpg"
+    # recipe.image ||= "../assets/images/bread-default.jpg"
 
     if recipe.save
       render json: recipe, status: :created
     else
-      error_resp = {
-        recipe.errors.full_messages.to_sentence
+      resp = {
+        error: recipe.errors.full_messages.to_sentence
       }
-
-      render json: recipe.error_resp, status: :unprocessable_entity
+      render json: recipe.errors, status: :unprocessable_entity
+    end
   end
+
 
 #   def create
 #     @recipe = Recipe.new(recipe_params)
