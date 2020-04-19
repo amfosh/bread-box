@@ -8,6 +8,7 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Signup from './components/Signup'
 import RecipeList from './components/RecipeList'
+import Home from './components/Home'
 import MainContainer from "./components/MainContainer"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -18,11 +19,13 @@ class App extends Component {
   }
 
   render() {
+    const { loggedIn } = this.props
     return (
       <div className="App">
         <Logout/>
         <NavBar/>
         <Router>
+        <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recipe-list' component={RecipeList}/>
@@ -33,5 +36,10 @@ class App extends Component {
     }
   }
 
+  const mapStateToProps = state => {
+    return({
+      loggedIn: !!state.currentUser
+    })
+  }
 
-export default connect(null, {getCurrentUser})(App);
+export default connect(mapStateToProps, {getCurrentUser})(App);
