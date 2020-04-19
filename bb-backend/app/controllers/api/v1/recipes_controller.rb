@@ -22,7 +22,7 @@ class Api::V1::RecipesController < ApplicationController
     # recipe.image ||= "../assets/images/bread-default.jpg"
 
     if recipe.save
-      render json: recipe, status: :created
+      render json: RecipeSerializer.new(recipe)
     else
       resp = {
         error: recipe.errors.full_messages.to_sentence

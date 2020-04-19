@@ -5,7 +5,7 @@ export const setUserRecipes = recipes => {
     }
 }
 
-export const clearRecipes = recipes => {
+export const clearRecipes = () => {
     return {
         type: "CLEAR_RECIPES",
     }
@@ -57,7 +57,13 @@ export const createRecipe = recipeData => {
             body: JSON.stringify(sendableRecipeData)
         })
             .then(r => r.json())
-            .then(console.log)
+            .then(res => {
+                if (res.error) {
+                    alert(res.error)
+                } else {
+                dispatch(addRecipe(res.data))
+            }
+        })
             .catch(console.log)
     }
 }
