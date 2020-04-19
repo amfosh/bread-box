@@ -16,7 +16,7 @@ export const clearCurrentUser = () => {
     }
 }
 //async
-export const login = credentials => {
+export const login = (credentials, history) => {
 
     return dispatch => {
         dispatch(clearCurrentUser())
@@ -36,6 +36,7 @@ export const login = credentials => {
             dispatch(setCurrentUser(res.data))
             dispatch(getUserRecipes())
             dispatch(resetLoginForm())
+            history.push('/')
         } 
     })
     .catch(console.log)
@@ -74,7 +75,7 @@ export const getCurrentUser = () => {
     }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
 
     return dispatch => {
         const userInfo = {
@@ -96,6 +97,7 @@ export const signup = credentials => {
             dispatch(setCurrentUser(res.data))
             dispatch(getUserRecipes())
             dispatch(resetSignupForm())
+            history.push('/')
         } 
     })
     .catch(console.log)
