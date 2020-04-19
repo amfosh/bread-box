@@ -8,6 +8,7 @@ const RecipeCard = ({ recipe }) => {
             <p>{recipe.attributes.image}</p>
             <p>{recipe.attributes.ingredient_lines}</p>
             <p>{recipe.attributes.directions}</p>
+            <Link to={`/recipes/${recipe.id}/edit`}>Edit Recipe</Link>
         </div> :
         <p>Hello</p>
     )
