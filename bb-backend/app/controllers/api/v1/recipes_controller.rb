@@ -18,8 +18,17 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    # recipe = Recipe.new(recipe_params)
-    # recipe.image ||= "../assets/images/bread-default.jpg"
+    recipe = Recipe.new(recipe_params)
+    recipe.image ||= "../assets/images/bread-default.jpg"
+
+    if recipe.save
+      render json: recipe, status: :created
+    else
+      error_resp = {
+        recipe.errors.full_messages.to_sentence
+      }
+
+      render json: recipe.error_resp, status: :unprocessable_entity
   end
 
 #   def create
@@ -55,6 +64,6 @@ class Api::V1::RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines)
+      params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines, :user_id)
     end
 end
