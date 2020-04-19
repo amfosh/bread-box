@@ -25,8 +25,8 @@ class App extends Component {
       <div className="App">
         
         <Router>
-        <NavBar/>
-        <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/>
+        { loggedIn ? <NavBar/> : <Home/> }
+        {/* <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/> */}
           <Route exact path='/login' component={Login}/>
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recipes' component={RecipeList}/>

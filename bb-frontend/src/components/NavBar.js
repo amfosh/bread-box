@@ -7,9 +7,9 @@ const NavBar = ({ currentUser, loggedIn }) => {
 
     return (
         <div className="NavBar">
-            {loggedIn ? <Logout/> : null}
             <NavLink exact activeClass to="/recipes">  My BreadBox|</NavLink>
             <NavLink exact activeClass to="/recipes/new">  New Recipe|  </NavLink>
+            { loggedIn ? <Logout/> : null }
             {/* { currentUser ? <h2>Welcome, {currentUser.attributes.username}!</h2> : "" } */}
         </div>
     )
