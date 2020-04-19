@@ -1,14 +1,13 @@
 // //container
 import React from 'react'
-import RecipeCard from './RecipeCard'
+// import RecipeCard from './RecipeCard'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const RecipeList = props => {
     const recipeCards = props.recipes.length > 0 ?
-    props.recipes.map(r => <RecipeCard recipe={r} key={r.id}/>) : null
-    return (
-        recipeCards 
-    )
+    props.recipes.map(r => (<><Link key={r.id} to={`/recipes/${r.attributes.id}`}>{r.attributes.label}</Link><br/></>)) : null
+    return recipeCards 
 }
 
 const mapStateToProps = state => {
