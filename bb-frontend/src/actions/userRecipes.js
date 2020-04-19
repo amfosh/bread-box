@@ -5,6 +5,12 @@ export const setUserRecipes = recipes => {
     }
 }
 
+export const clearRecipes = recipes => {
+    return {
+        type: "CLEAR_RECIPES",
+    }
+}
+
 export const getUserRecipes = () => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/recipes", {

@@ -10,7 +10,7 @@ import Signup from './components/Signup'
 import RecipeList from './components/RecipeList'
 import Home from './components/Home'
 import RecipeForm from './components/RecipeForm'
-import MainContainer from "./components/MainContainer"
+// import MainContainer from "./components/MainContainer"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -23,9 +23,9 @@ class App extends Component {
     const { loggedIn } = this.props
     return (
       <div className="App">
-        {loggedIn ? <Logout/> : null}
-        <NavBar/>
+        
         <Router>
+        <NavBar/>
         <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/signup' component={Signup}/>

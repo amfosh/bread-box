@@ -38,6 +38,10 @@
 }
 
 .NavBar {
-  display: fixed;
+  display: flex;
   flex-direction: row;
+}
+
+a.active {
+  color: #61c1a1
 }

@@ -6,13 +6,14 @@ import { connect } from 'react-redux'
 const RecipeForm = ({label, ingredientLines, directions, image}) => {
     
     const handleChange = event  => {
-        event.preventDefault()
         const { name, value } = event.target
         updateRecipeForm(name, value)
     }
 
+    const handleSubmit = event => event.preventDefault()
+
     return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <input 
           name="label"
           onChange={handleChange}

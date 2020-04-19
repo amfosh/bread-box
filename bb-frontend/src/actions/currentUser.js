@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { getUserRecipes } from './userRecipes'
+import { getUserRecipes, clearRecipes } from './userRecipes'
 
 //sync
 export const setCurrentUser = user => {
@@ -45,6 +45,8 @@ export const login = (credentials, history) => {
 
 export const logout = () => {
     return (dispatch) => {
+        dispatch(clearCurrentUser())
+        dispatch(clearRecipes())
         return fetch('http://localhost:3000/api/v1/logout', {
         credentials: "include",
         method: "DELETE"
