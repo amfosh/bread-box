@@ -6,8 +6,8 @@ export const updateRecipeForm = (name, value) => {
     }
 }
 
-// export const resetRecipeForm = () => {
-//     return {
-//         type: "RESET_RECIPE_FORM",
-//     }
-// }
+export const resetRecipeForm = () => {
+    return {
+        type: "RESET_RECIPE_FORM",
+    }
+}

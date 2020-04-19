@@ -2,10 +2,14 @@ import React from 'react'
 
 const RecipeCard = ({ recipe }) => {
     return (
-        <div>{recipe.attributes.label}
-        {recipe.attributes.image}
-        {recipe.attributes.ingredientLines}
-        {recipe.attributes.directions}</div>
+        recipe ?
+        <div>
+            <h2>{recipe.attributes.label}</h2>
+            <p>{recipe.attributes.image}</p>
+            <p>{recipe.attributes.ingredientLines}</p>
+            <p>{recipe.attributes.directions}</p>
+        </div> :
+        <p>Hello</p>
     )
 }
 

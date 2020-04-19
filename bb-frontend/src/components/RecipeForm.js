@@ -19,7 +19,7 @@ const RecipeForm = ({ label, ingredientLines, directions, image, userId , histor
         directions, 
         image, 
         userId
-      })
+      }, history )
     }
 
     return (

@@ -8,6 +8,7 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Signup from './components/Signup'
 import RecipeList from './components/RecipeList'
+import RecipeCard from './components/RecipeCard'
 import Home from './components/Home'
 import RecipeForm from './components/RecipeForm'
 // import MainContainer from "./components/MainContainer"
@@ -31,6 +32,7 @@ class App extends Component {
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recipes' component={RecipeList}/>
           <Route exact path='/recipes/new' component={RecipeForm}/>
+          <Route exact path='/recipes/:id' component={RecipeCard}/>
         </Router>
         {/* <MainContainer/> */}
       </div>

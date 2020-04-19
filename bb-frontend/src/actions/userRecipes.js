@@ -1,3 +1,5 @@
+import { resetRecipeForm } from './recipeForm' 
+
 export const setUserRecipes = recipes => {
     return {
         type: "SET_USER_RECIPES",
@@ -39,7 +41,7 @@ export const getUserRecipes = () => {
     }
 }
 
-export const createRecipe = recipeData => {
+export const createRecipe = (recipeData, history) => {
     return dispatch => {
         const sendableRecipeData = {
             label: recipeData.label,
@@ -62,6 +64,8 @@ export const createRecipe = recipeData => {
                     alert(res.error)
                 } else {
                 dispatch(addRecipe(res.data))
+                dispatch(resetRecipeForm())
+                history.push(`/recipes/${res.data.id}`)
             }
         })
             .catch(console.log)
