@@ -58,12 +58,6 @@ class Api::V1::RecipesController < ApplicationController
 
   private
   
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_recipe
-    #   @recipe = Recipe.find(params[:id])
-    # end
-
-    # Only allow a trusted parameter "white list" through.
     def recipe_params
       params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines, :user_id)
     end

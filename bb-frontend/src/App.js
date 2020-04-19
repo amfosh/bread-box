@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn, recipes } = this.props
     return (
       <div className="App">
         
@@ -32,7 +32,12 @@ class App extends Component {
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recipes' component={RecipeList}/>
           <Route exact path='/recipes/new' component={RecipeForm}/>
-          <Route exact path='/recipes/:id' component={RecipeCard}/>
+          <Route exact path='/recipes/:id' render={props => {
+            const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
+            console.log(recipe)
+            return <RecipeCard recipe={recipe} {...props}/>
+          }
+        }/>
         </Router>
         {/* <MainContainer/> */}
       </div>
@@ -42,7 +47,8 @@ class App extends Component {
 
   const mapStateToProps = state => {
     return({
-      loggedIn: !!state.currentUser
+      loggedIn: !!state.currentUser,
+      recipes: state.userRecipes
     })
   }
 
