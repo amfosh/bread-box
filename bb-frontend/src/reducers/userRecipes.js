@@ -9,6 +9,7 @@ export default (state = initialState, action) => {
         case "UPDATE_RECIPE":
             return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
         case "DELETE_RECIPE":
+            console.log("action.recipeId is ", action.recipeId)
             return state.filter(recipe => recipe.id === action.recipeId ? false : true)
         case "CLEAR_RECIPES":
             return initialState

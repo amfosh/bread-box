@@ -45,7 +45,7 @@ class Api::V1::RecipesController < ApplicationController
 
   def destroy
     if @recipe.destroy
-      render json: { msg: "Recipe deleted." } , status: :ok
+      render json: { data: "Recipe deleted." } , status: :ok
     else
       resp = {
         error: "Recipe not found."
