@@ -7,7 +7,7 @@ export default (state = initialState, action) => {
         case "ADD_RECIPE":
             return state.concat(action.recipe)
         case "UPDATE_RECIPE":
-            console.log("hey")
+            return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
         case "CLEAR_RECIPES":
             return initialState
         default:

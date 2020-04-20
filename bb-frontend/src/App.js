@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn, recipes } = this.props
+    const { loggedIn, recipes, setDataForEdit } = this.props
     return (
       <div className="App">
         
@@ -43,7 +43,6 @@ class App extends Component {
         }/>
           <Route exact path='/recipes/:id/edit' render={props => {
             const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
-            console.log(recipe)
             return <EditFormContainer recipe={recipe} {...props}/>
           }
         }/>

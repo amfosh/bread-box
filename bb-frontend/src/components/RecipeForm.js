@@ -3,7 +3,7 @@ import { updateRecipeForm } from '../actions/recipeForm'
 import { connect } from 'react-redux'
 
 
-const RecipeForm = ({ formData, userId , history, updateRecipeForm, handleSubmit, editMode, recipe }) => {
+const RecipeForm = ({ formData, userId, updateRecipeForm, handleSubmit, editMode, recipe }) => {
 
   const { label, ingredientLines, directions, image } = formData
 
@@ -14,7 +14,8 @@ const RecipeForm = ({ formData, userId , history, updateRecipeForm, handleSubmit
 
     return (
     <form onSubmit={event => {
-      handleSubmit(event, formData, userId, history)
+      event.preventDefault()
+      handleSubmit(formData, userId)
     }}>
         <input 
           name="label"
