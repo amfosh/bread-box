@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-// import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser'
@@ -37,7 +36,6 @@ class App extends Component {
           <Route exact path='/recipes/new' component={NewFormContainer}/>
           <Route exact path='/recipes/:id' render={props => {
             const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
-            console.log(recipe)
             return <RecipeCard recipe={recipe} {...props}/>
           }
         }/>
