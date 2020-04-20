@@ -20,6 +20,13 @@ export const addRecipe = recipe => {
     }
 }
 
+export const updateRecipeSuccess = recipe => {
+    return {
+        type: "UPDATE_RECIPE_SUCCESS",
+        recipe
+    }
+}
+
 export const getUserRecipes = () => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/recipes", {
@@ -64,6 +71,37 @@ export const createRecipe = (recipeData, history) => {
                     alert(res.error)
                 } else {
                 dispatch(addRecipe(res.data))
+                dispatch(resetRecipeForm())
+                history.push(`/recipes/${res.data.id}`)
+            }
+        })
+            .catch(console.log)
+    }
+}
+
+export const updateRecipe = (recipeData, history) => {
+    return dispatch => {
+        const sendableRecipeData = {
+            label: recipeData.label,
+            ingredient_lines: recipeData.ingredientLines,
+            directions: recipeData.directions,
+            image: recipeData.image,
+            user_id: recipeData.userId
+        }
+        return fetch(`http://localhost:3000/api/v1/recipes/${recipeData.recipeId}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableRecipeData)
+        })
+            .then(r => r.json())
+            .then(res => {
+                if (res.error) {
+                    alert(res.error)
+                } else {
+                dispatch(updateRecipeSuccess(res.data))
                 dispatch(resetRecipeForm())
                 history.push(`/recipes/${res.data.id}`)
             }

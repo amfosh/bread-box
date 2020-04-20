@@ -6,6 +6,8 @@ export default (state = initialState, action) => {
             return action.recipes
         case "ADD_RECIPE":
             return state.concat(action.recipe)
+        case "UPDATE_RECIPE":
+            console.log("hey")
         case "CLEAR_RECIPES":
             return initialState
         default:

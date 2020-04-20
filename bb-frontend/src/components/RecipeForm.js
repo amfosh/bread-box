@@ -3,7 +3,7 @@ import { updateRecipeForm } from '../actions/recipeForm'
 import { connect } from 'react-redux'
 
 
-const RecipeForm = ({ formData, userId , history, updateRecipeForm, handleSubmit, recipe }) => {
+const RecipeForm = ({ formData, userId , history, updateRecipeForm, handleSubmit, editMode, recipe }) => {
 
   const { label, ingredientLines, directions, image } = formData
 
@@ -42,7 +42,7 @@ const RecipeForm = ({ formData, userId , history, updateRecipeForm, handleSubmit
         /><br/>
         <input 
           type="submit"
-          value="Create Recipe"
+          value={editMode ? "Update Recipe" : "Create Recipe"}
         />
     </form>
 )};
