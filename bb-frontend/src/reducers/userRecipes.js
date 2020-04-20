@@ -8,6 +8,8 @@ export default (state = initialState, action) => {
             return state.concat(action.recipe)
         case "UPDATE_RECIPE":
             return state.map(recipe => recipe.id === action.recipe.id ? action.recipe : recipe)
+        case "DELETE_RECIPE":
+            return state.filter(recipe => recipe.id === action.recipeId ? false : true)
         case "CLEAR_RECIPES":
             return initialState
         default:

@@ -43,6 +43,16 @@ class Api::V1::RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    if @recipe.destroy
+      render json: { msg: "Recipe deleted." } , status: :ok
+    else
+      resp = {
+        error: "Recipe not found."
+      }
+      render json: @recipe.errors, status: :unprocessable_entity
+    end
+  end
 
 
   private

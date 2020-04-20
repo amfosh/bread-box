@@ -20,9 +20,17 @@ export const addRecipe = recipe => {
     }
 }
 
+
 export const updateRecipeSuccess = recipe => {
     return {
         type: "UPDATE_RECIPE",
+        recipe
+    }
+}
+
+export const deleteRecipeSuccess = recipe => {
+    return {
+        type: "DELETE_RECIPE",
         recipe
     }
 }
@@ -86,7 +94,7 @@ export const updateRecipe = (recipeData, history) => {
             ingredient_lines: recipeData.ingredientLines,
             directions: recipeData.directions,
             image: recipeData.image,
-            user_id: recipeData.userId
+            // user_id: recipeData.userId
         }
         return fetch(`http://localhost:3000/api/v1/recipes/${recipeData.recipeId}`, {
             credentials: "include",
@@ -109,3 +117,27 @@ export const updateRecipe = (recipeData, history) => {
             .catch(console.log)
     }
 }
+
+export const deleteRecipe = (recipeId, history) => {
+    return dispatch => {
+      return fetch(`http://localhost:3000/api/v1/recipes/${recipeId}`, {
+        credentials: "include",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(r => r.json())
+        .then(res => {
+          if (res.error) {
+            alert(res.error)
+          } else {
+            dispatch(deleteRecipeSuccess(recipeId))
+            history.push(`/recipes`)
+          }
+        })
+        .catch(console.log)
+  
+    }
+  
+  }

@@ -1,6 +1,6 @@
 import React from 'react'
-import { updateRecipe } from '../actions/userRecipes'
-import { setDataForEdit } from '../actions/recipeForm'
+import { updateRecipe, deleteRecipe } from '../actions/userRecipes'
+import { setDataForEdit, resetRecipeForm } from '../actions/recipeForm'
 import RecipeForm from '../components/RecipeForm'
 import { connect } from 'react-redux'
 
@@ -8,6 +8,14 @@ import { connect } from 'react-redux'
 class EditFormContainer extends React.Component { 
     componentDidMount(){
         this.props.recipe && this.props.setDataForEdit(this.props.recipe)
+    }
+
+    componentDidUpdate(prevProps){
+      this.props.recipe && !prevProps.recipe && this.props.setDataForEdit(this.props.recipe)
+    }
+
+    componentWillUnmount() {
+      this.props.resetRecipeForm()
     }
 
     handleSubmit = (formData) => {
@@ -19,10 +27,13 @@ class EditFormContainer extends React.Component {
     }
 
     render() {
-        const { history, recipe } = this.props
+        const { history, deleteRecipe, recipe } = this.props
         const recipeId = recipe ? recipe.id : null
-        return <RecipeForm editMode handleSubmit={this.handleSubmit}/>
+        return <>
+          <RecipeForm editMode handleSubmit={this.handleSubmit}/>
+          <button onClick={()=>deleteRecipe(recipeId, history)}>Delete Recipe</button>
+        </>
     }
   };
 
-export default connect(null, { updateRecipe, setDataForEdit })(EditFormContainer)
+export default connect(null, { updateRecipe, setDataForEdit, resetRecipeForm, deleteRecipe })(EditFormContainer)
