@@ -10,17 +10,17 @@ class EditFormContainer extends React.Component {
         this.props.recipe && this.props.setDataForEdit(this.props.recipe)
     }
 
-    handleSubmit = (formData, userId) => {
+    handleSubmit = (formData) => {
       const { updateRecipe, recipe, history } = this.props
         updateRecipe({
           ...formData, 
           recipeId: recipe.id,
-          userId
         }, history)
     }
 
     render() {
-        const { history, handleSubmit } = this.props
+        const { history, recipe } = this.props
+        const recipeId = recipe ? recipe.id : null
         return <RecipeForm editMode handleSubmit={this.handleSubmit}/>
     }
   };

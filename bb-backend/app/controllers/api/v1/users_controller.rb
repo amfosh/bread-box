@@ -1,11 +1,8 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
-  # GET /users
   def index
-
     @users = User.all
-
     render json: @users, status: 200
   end
 
@@ -20,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       render json: UserSerializer.new(@user), status: :created
     else
       resp = {

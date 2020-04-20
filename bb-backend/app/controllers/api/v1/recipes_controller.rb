@@ -19,16 +19,16 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     # recipe.image ||= "../assets/images/bread-default.jpg"
 
     if @recipe.save
-      render json: RecipeSerializer.new(@recipe)
+      render json: RecipeSerializer.new(@recipe), status: :ok
     else
       resp = {
-        error: recipe.errors.full_messages.to_sentence
+        error: @recipe.errors.full_messages.to_sentence
       }
-      render json: recipe.errors, status: :unprocessable_entity
+      render json: @recipe.errors, status: :unprocessable_entity
     end
   end
 
@@ -52,6 +52,6 @@ class Api::V1::RecipesController < ApplicationController
     end
   
     def recipe_params
-      params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines, :user_id)
+      params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines)
     end
 end

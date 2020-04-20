@@ -15,7 +15,7 @@ const RecipeForm = ({ formData, userId, updateRecipeForm, handleSubmit, editMode
     return (
     <form onSubmit={event => {
       event.preventDefault()
-      handleSubmit(formData, userId)
+      handleSubmit(formData)
     }}>
         <input 
           name="label"

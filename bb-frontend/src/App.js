@@ -5,15 +5,15 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from "./components/NavBar"
 import Login from './components/Login'
-import Logout from './components/Logout'
+// import Logout from './components/Logout'
 import Signup from './components/Signup'
 import RecipeList from './components/RecipeList'
 import RecipeCard from './components/RecipeCard'
 import Home from './components/Home'
-import RecipeForm from './components/RecipeForm'
+// import RecipeForm from './components/RecipeForm'
 import NewFormContainer from './containers/NewFormContainer'
 import EditFormContainer from './containers/EditFormContainer'
-import { setDataForEdit } from'./actions/recipeForm'
+// import { setDataForEdit } from'./actions/recipeForm'
 // import MainContainer from "./components/MainContainer"
 import { Route, Switch, withRouter } from 'react-router-dom'
 
@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   render() {
-    const { loggedIn, recipes, setDataForEdit } = this.props
+    const { loggedIn, recipes } = this.props
     return (
       <div className="App">
         

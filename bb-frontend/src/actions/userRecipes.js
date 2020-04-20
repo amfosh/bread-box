@@ -22,7 +22,7 @@ export const addRecipe = recipe => {
 
 export const updateRecipeSuccess = recipe => {
     return {
-        type: "UPDATE_RECIPE_SUCCESS",
+        type: "UPDATE_RECIPE",
         recipe
     }
 }
@@ -102,7 +102,7 @@ export const updateRecipe = (recipeData, history) => {
                     alert(res.error)
                 } else {
                 dispatch(updateRecipeSuccess(res.data))
-                dispatch(resetRecipeForm())
+                // dispatch(resetRecipeForm())
                 history.push(`/recipes/${res.data.id}`)
             }
         })

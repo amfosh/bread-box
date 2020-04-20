@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 const NewFormContainer = ({ history, createRecipe }) => {
 
-    const handleSubmit = (formData, userId, history) => {
+    const handleSubmit = (formData, userId) => {
         createRecipe({
           ...formData, 
           userId
