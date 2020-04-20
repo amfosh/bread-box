@@ -4,10 +4,10 @@ import RecipeForm from '../components/RecipeForm'
 import { connect } from 'react-redux'
 
 
-const NewFormContainer = ({ history }) => {
+const NewFormContainer = ({ history, createRecipe }) => {
 
     const handleSubmit = (event, formData, userId, history) => {
-        event.preventDefault()
+      event.preventDefault()
         createRecipe({
           ...formData, 
           userId

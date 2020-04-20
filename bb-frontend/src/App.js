@@ -37,7 +37,7 @@ class App extends Component {
           <Route exact path='/recipes/:id' render={props => {
             const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
             console.log(recipe)
-            return <RecipeForm recipe={recipe} {...props}/>
+            return <RecipeCard recipe={recipe} {...props}/>
           }
         }/>
           <Route exact path='/recipes/:id/edit' render={props => {

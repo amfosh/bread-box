@@ -13,7 +13,9 @@ const RecipeForm = ({ formData, userId , history, updateRecipeForm, handleSubmit
     }
 
     return (
-    <form onSubmit={event => handleSubmit(event, formData, userId, history)}>
+    <form onSubmit={event => {
+      handleSubmit(event, formData, userId, history)
+    }}>
         <input 
           name="label"
           onChange={handleChange}
