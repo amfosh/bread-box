@@ -11,9 +11,10 @@ import RecipeList from './components/RecipeList'
 import RecipeCard from './components/RecipeCard'
 import Home from './components/Home'
 import RecipeForm from './components/RecipeForm'
+import NewFormContainer from './containers/NewFormContainer'
 import { setDataForEdit } from'./actions/recipeForm'
 // import MainContainer from "./components/MainContainer"
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends Component {
 
@@ -26,17 +27,17 @@ class App extends Component {
     return (
       <div className="App">
         
-        <Router>
         { loggedIn ? <NavBar/> : <Home/> }
+        <Switch>
         {/* <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/> */}
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/signup' component={Signup}/>
+          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/recipes' component={RecipeList}/>
-          <Route exact path='/recipes/new' component={RecipeForm}/>
+          <Route exact path='/recipes/new' component={NewFormContainer}/>
           <Route exact path='/recipes/:id' render={props => {
             const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
             console.log(recipe)
-            return <RecipeCard recipe={recipe} {...props}/>
+            return <RecipeForm recipe={recipe} {...props}/>
           }
         }/>
           <Route exact path='/recipes/:id/edit' render={props => {
@@ -46,7 +47,7 @@ class App extends Component {
           }
         }/>
         
-        </Router>
+        </Switch>
         {/* <MainContainer/> */}
       </div>
       );
@@ -60,4 +61,4 @@ class App extends Component {
     })
   }
 
-export default connect(mapStateToProps, {getCurrentUser})(App);
+export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));

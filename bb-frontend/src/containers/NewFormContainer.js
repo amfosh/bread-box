@@ -1,21 +1,19 @@
 import React from 'react'
 import { createRecipe } from '../actions/userRecipes'
+import RecipeForm from '../components/RecipeForm'
 import { connect } from 'react-redux'
 
 
-const NewFormContainer = ({}) => (
-    const handleSubmit = event, label, ingredientLines, directions, image, userId, history => {
+const NewFormContainer = ({ history }) => {
+
+    const handleSubmit = (event, formData, userId, history) => {
         event.preventDefault()
         createRecipe({
-          label, 
-          ingredientLines, 
-          directions, 
-          image, 
+          ...formData, 
           userId
         }, history )
     }
-    const hs
-    <RecipeForm history={history} handleSubmit={handleSubmit}/>
-)
+    return <RecipeForm history={history} handleSubmit={handleSubmit}/>
+  }
 
-export default NewFormContainer
+export default connect(null, { createRecipe })(NewFormContainer)
