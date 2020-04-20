@@ -15,6 +15,8 @@ export default (state=initialState, action) => {
             }
         case "RESET_RECIPE_FORM":
             return initialState
+        case "SET_DATA_FOR_EDIT":
+            return action.recipeFormData
         default:
             return state
     }

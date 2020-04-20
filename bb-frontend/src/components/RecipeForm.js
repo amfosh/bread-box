@@ -4,7 +4,9 @@ import { createRecipe } from '../actions/userRecipes'
 import { connect } from 'react-redux'
 
 
-const RecipeForm = ({ label, ingredientLines, directions, image, userId , history, updateRecipeForm, createRecipe}) => {
+const RecipeForm = ({ formData, userId , history, updateRecipeForm, createRecipe }) => {
+
+  const { label, ingredientLines, directions, image } = formData
 
     const handleChange = event  => {
         const { name, value } = event.target
@@ -14,13 +16,10 @@ const RecipeForm = ({ label, ingredientLines, directions, image, userId , histor
     const handleSubmit = event => {
       event.preventDefault()
       createRecipe({
-        label, 
-        ingredientLines, 
-        directions, 
-        image, 
+        ...formData,
         userId
       }, history )
-    }
+  }
 
     return (
     <form onSubmit={handleSubmit}>
@@ -57,13 +56,9 @@ const RecipeForm = ({ label, ingredientLines, directions, image, userId , histor
 
 const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : ""
-  const { label, ingredientLines, directions, image } = state.recipeForm
     return {
-      label, 
-      ingredientLines, 
-      directions, 
-      image, 
-      userId 
+      formData: state.recipeForm,
+      userId
     }
 }
 

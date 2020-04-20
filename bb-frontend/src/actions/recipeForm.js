@@ -11,3 +11,16 @@ export const resetRecipeForm = () => {
         type: "RESET_RECIPE_FORM",
     }
 }
+
+export const setDataForEdit = recipe => {
+    const recipeFormData = {
+        label: recipe.attributes.label,
+        directions: recipe.attributes.directions,
+        ingredientLines: recipe.attributes.ingredient_lines,
+        image: recipe.attributes.image
+    }
+    return {
+        type: "SET_DATA_FOR_EDIT",
+        recipeFormData
+    }
+}
