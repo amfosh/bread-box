@@ -28,10 +28,10 @@ export const updateRecipeSuccess = recipe => {
     }
 }
 
-export const deleteRecipeSuccess = recipe => {
+export const deleteRecipeSuccess = recipeId => {
     return {
         type: "DELETE_RECIPE",
-        recipe
+        recipeId
     }
 }
 
