@@ -49,3 +49,14 @@
 a.active {
   color: #61c1a1
 }
+
+.card {
+  max-width: 350px;
+	width: 100%;
+	display: inline-block;
+	border-radius: 3px;
+	text-decoration: none;
+	color: #000;
+	margin: 0 10px 15px;
+  box-shadow: 7px 7px 50px -10px rgba(0, 0, 0, .5);
+}

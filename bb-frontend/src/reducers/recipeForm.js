@@ -1,8 +1,9 @@
+
 const initialState = {
     label: "",
     directions: "",
     ingredientLines: "",
-    image: "../assets/images/bread-default.jpg"
+    image: ""
 }
 
 
