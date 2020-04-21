@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -46,6 +47,20 @@
   align-items: right;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9c4325;
+  text-decoration: none;
+}
+
+a.visited {
+  color: #9c4325;
+}
+
 a.active {
   color: #61c1a1
 }
@@ -69,7 +84,7 @@ input[type="submit"]{
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family: Assistant;
 	font-size:15px;
 	padding:3px 18px;
 	text-decoration:none;
