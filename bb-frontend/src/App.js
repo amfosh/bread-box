@@ -27,7 +27,7 @@ class App extends Component {
     const { loggedIn, recipes } = this.props
     return (
       <div className="App">
-        <App-header><img src={logo}/></App-header>
+        <App-header><img src={logo} alt="logo"/></App-header>
         { loggedIn ? <NavBar/> : <Home/> }
         <Switch>
         {/* <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/> */}
