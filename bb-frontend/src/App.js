@@ -9,11 +9,9 @@ import Signup from './components/Signup'
 import RecipeList from './components/RecipeList'
 import RecipeCard from './components/RecipeCard'
 import Home from './components/Home'
-// import RecipeForm from './components/RecipeForm'
 import NewFormContainer from './containers/NewFormContainer'
 import EditFormContainer from './containers/EditFormContainer'
-// import { setDataForEdit } from'./actions/recipeForm'
-// import MainContainer from "./components/MainContainer"
+import About from './components/About';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import logo from './bread-logo.png'
 
@@ -35,6 +33,7 @@ class App extends Component {
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/recipes' component={RecipeList}/>
           <Route exact path='/recipes/new' component={NewFormContainer}/>
+          <Route exact path="/about" component={About} />
           <Route exact path='/recipes/:id' render={props => {
             const recipe = recipes.find(recipe => recipe.id === props.match.params.id)
             return <RecipeCard recipe={recipe} {...props}/>

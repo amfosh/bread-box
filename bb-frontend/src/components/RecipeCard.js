@@ -8,14 +8,13 @@ const RecipeCard = ({ recipe }) => {
         <div>
             <h2>{recipe.attributes.label}</h2>
             <p><img src={recipe.attributes.image.length > 0 ? recipe.attributes.image : bread } width="300" height = "300" alt="bread"/></p>
-            <p>{recipe.attributes.image}</p>
             <h3>Ingredients:</h3>
             <p>{recipe.attributes.ingredient_lines}</p>
             <h3>Directions:</h3>
             <p>{recipe.attributes.directions}</p>
             <Link to={`/recipes/${recipe.id}/edit`}>Edit Recipe</Link>
-        </div> :
-        <p>Hello</p>
+            <br/></div> :
+        <p>No recipe found.</p>
     )
 }
 

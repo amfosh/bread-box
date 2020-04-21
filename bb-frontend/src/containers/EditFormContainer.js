@@ -30,7 +30,7 @@ class EditFormContainer extends React.Component {
         const { history, deleteRecipe, recipe } = this.props
         const recipeId = recipe ? recipe.id : null
         return <>
-          <RecipeForm editMode handleSubmit={this.handleSubmit}/>
+          <RecipeForm editMode handleSubmit={this.handleSubmit}/><br></br> 
           <button onClick={()=>deleteRecipe(recipeId, history)}>Delete Recipe</button>
         </>
     }
