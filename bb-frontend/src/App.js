@@ -15,6 +15,7 @@ import EditFormContainer from './containers/EditFormContainer'
 // import { setDataForEdit } from'./actions/recipeForm'
 // import MainContainer from "./components/MainContainer"
 import { Route, Switch, withRouter } from 'react-router-dom'
+import logo from './bread-logo.png'
 
 class App extends Component {
 
@@ -26,7 +27,7 @@ class App extends Component {
     const { loggedIn, recipes } = this.props
     return (
       <div className="App">
-        
+        <App-header><img src={logo}/></App-header>
         { loggedIn ? <NavBar/> : <Home/> }
         <Switch>
         {/* <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/> */}
