@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <App-header><img src={logo} alt="logo"/></App-header>
-        { loggedIn ? <NavBar/> : <Home/> }
+        { loggedIn ? <NavBar/> : ""}
         <Switch>
           <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/>
           <Route exact path='/login' component={Login}/>

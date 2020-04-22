@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 
 const RecipeList = props => {
-
     const bread = require('../bread-default.jpg');
 
     const recipeCards = props.recipes.length > 0 ?
