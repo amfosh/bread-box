@@ -12,7 +12,7 @@ const RecipeList = props => {
     props.recipes.map(r => (<div className="card" key={r.id}>
         <Link to={`/recipes/${r.id}`}>
             <h4>{r.attributes.label}</h4></Link>
-            <p><img src={r.attributes.image.length > 0 ? r.attributes.image : bread } width="300" height = "300" alt='bread'/></p><br/></div>)) : null
+            <p><img src={r.attributes.image.length > 0 ? r.attributes.image : bread } width="300" height = "300" alt='bread'/></p><br/></div>)) : "You don't have any recipes yet!"
     return recipeCards 
 }
 

@@ -16,7 +16,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,4 +102,12 @@ button {
 	font-size:15px;
 	padding:3px 18px;
 	text-decoration:none;
+}
+
+footer {
+  background: #dbdbdb;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }

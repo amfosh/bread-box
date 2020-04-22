@@ -6,13 +6,11 @@ class Api::V1::UsersController < ApplicationController
     render json: @users, status: 200
   end
 
-  # # GET /users/1
   def show
     user_json = UserSerializer.new(@user).serialized_json
     render json: user_json
   end
 
-  # POST /users
   def create
     @user = User.new(user_params)
 
@@ -28,12 +26,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def user_params
       params.require(:user).permit(:username, :email, :password)
     end
