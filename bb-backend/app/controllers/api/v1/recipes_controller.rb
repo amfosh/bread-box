@@ -20,7 +20,7 @@ class Api::V1::RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
-    # recipe.image ||= "../assets/images/bread-default.jpg"
+    # recipe.image ||= "/assets/images/bread-default.jpg"
 
     if @recipe.save
       render json: RecipeSerializer.new(@recipe), status: :ok
@@ -28,7 +28,7 @@ class Api::V1::RecipesController < ApplicationController
       resp = {
         error: @recipe.errors.full_messages.to_sentence
       }
-      render json: @recipe.errors, status: :unprocessable_entity
+      render json: resp, status: :unprocessable_entity
     end
   end
 
