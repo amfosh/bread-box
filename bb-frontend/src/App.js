@@ -45,7 +45,7 @@ class App extends Component {
           }
         }/>
         </Switch>
-        {/* <MainContainer/> */}
+        <footer/>
       </div>
       );
     }
