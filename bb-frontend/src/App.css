@@ -23,7 +23,6 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  transition: top 0.2s ease-in-out;
 }
 
 .App-link {

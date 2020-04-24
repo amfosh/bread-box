@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser'
 import NavBar from "./components/NavBar"
 import Login from './components/Login'
-// import Logout from './components/Logout'
 import Signup from './components/Signup'
-import RecipeList from './components/RecipeList'
+import RecipeList from './containers/RecipeList'
 import RecipeCard from './components/RecipeCard'
 import Home from './components/Home'
 import NewFormContainer from './containers/NewFormContainer'
