@@ -1,5 +1,7 @@
 import { resetRecipeForm } from './recipeForm' 
 
+const recipeUrl = "http://localhost:3000/api/v1/recipes/"
+
 export const setUserRecipes = recipes => {
     return {
         type: "SET_USER_RECIPES",
@@ -37,7 +39,7 @@ export const deleteRecipeSuccess = recipeId => {
 
 export const getUserRecipes = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/recipes", {
+        return fetch(recipeUrl, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -65,7 +67,7 @@ export const createRecipe = (recipeData, history) => {
             image: recipeData.image,
             user_id: recipeData.userId
         }
-        return fetch("http://localhost:3000/api/v1/recipes", {
+        return fetch(recipeUrl, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -96,7 +98,7 @@ export const updateRecipe = (recipeData, history) => {
             image: recipeData.image,
             // user_id: recipeData.userId
         }
-        return fetch(`http://localhost:3000/api/v1/recipes/${recipeData.recipeId}`, {
+        return fetch(recipeUrl + `/${recipeData.recipeId}`, {
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -110,7 +112,6 @@ export const updateRecipe = (recipeData, history) => {
                     alert(res.error)
                 } else {
                 dispatch(updateRecipeSuccess(res.data))
-                // dispatch(resetRecipeForm())
                 history.push(`/recipes/${res.data.id}`)
             }
         })
@@ -120,7 +121,7 @@ export const updateRecipe = (recipeData, history) => {
 
 export const deleteRecipe = (recipeId, history) => {
     return dispatch => {
-      return fetch(`http://localhost:3000/api/v1/recipes/${recipeId}`, {
+      return fetch(recipeUrl + `${recipeId}`, {
         credentials: "include",
         method: "DELETE",
         headers: {

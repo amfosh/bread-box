@@ -8,7 +8,6 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk'
 
 const reducer = combineReducers({
-  // users: usersReducer,
   currentUser,
   loginForm,
   userRecipes,
