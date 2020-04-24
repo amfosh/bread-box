@@ -1,18 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import RecipeListCard from '../components/RecipeListCard';
 
 
-const RecipeList = props => {
-    const bread = require('../bread-default.jpg');
-
-    const recipeCards = props.recipes.length > 0 ?
-    props.recipes.map(r => (<div className="card" key={r.id}>
-        <Link to={`/recipes/${r.id}`}>
-            <h4>{r.attributes.label}</h4></Link>
-            <p><img src={r.attributes.image.length > 0 ? r.attributes.image : bread } width="300" height = "300" alt='bread'/></p><br/></div>)) : "You don't have any recipes yet!"
-    return recipeCards 
-}
+const RecipeList = props => (
+    <div className="card">
+        {props.recipes.map(recipe => (
+            <RecipeListCard 
+            key={recipe.id}
+            recipe={recipe} />))
+        })}
+    </div>
+)
 
 const mapStateToProps = state => {
     return {
