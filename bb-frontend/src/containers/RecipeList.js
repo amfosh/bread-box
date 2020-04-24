@@ -4,7 +4,7 @@ import RecipeListCard from '../components/RecipeListCard';
 
 
 const RecipeList = props => (
-    <div className="card">
+    <div>
         {props.recipes.map(recipe => (
             <RecipeListCard 
             key={recipe.id}
