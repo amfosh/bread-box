@@ -22,29 +22,29 @@ class Api::V1::RecipesController < ApplicationController
     recipe = current_user.recipes.build(recipe_params)
 
     if recipe.save
-      render json: RecipeSerializer.new(recipe), status: :ok
+      render json: RecipeSerializer.new(recipe), status: 200
     else
       resp = {
         error: recipe.errors.full_messages.to_sentence
       }
-      render json: resp, status: :unprocessable_entity
+      render json: resp, status: 400
     end
   end
 
   def update
     if @recipe.update(recipe_params)
-      render json: RecipeSerializer.new(@recipe), status: :ok
+      render json: RecipeSerializer.new(@recipe), status: 200
     else
       resp = {
         error: @recipe.errors.full_messages.to_sentence
       }
-      render json: @recipe.errors, status: :unprocessable_entity
+      render json: @recipe.errors, status: 400
     end
   end
 
   def destroy
     if @recipe.destroy
-      render json: { data: "Recipe deleted." } , status: :ok
+      render json: { data: "Recipe deleted." } , status: 200
     else
       resp = {
         error: "Recipe not found."
