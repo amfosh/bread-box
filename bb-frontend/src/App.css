@@ -73,6 +73,10 @@ a.active {
   box-shadow: 7px 7px 50px -10px rgba(0, 0, 0, .5);
 }
 
+form {
+  padding-bottom: 50px;
+}
+
 input[type="submit"]{
 	background-color:#61c1a1
   ;

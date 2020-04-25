@@ -9,7 +9,7 @@ const RecipeList = props => (
             <RecipeListCard 
             key={recipe.id}
             recipe={recipe} />))
-        })}
+        }
     </div>
 )
 
