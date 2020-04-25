@@ -4,9 +4,9 @@ class Api::V1::RecipesController < ApplicationController
   def index
     if logged_in?
 
-    @recipes = current_user.recipes
+    recipes = current_user.recipes
 
-    render json: RecipeSerializer.new(@recipes)
+    render json: RecipeSerializer.new(recipes)
     else 
       render json: {
         error: "You must be logged in to see that!"
@@ -15,17 +15,17 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def show
-    render json: @recipe
+    render json: recipe
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
+    recipe = current_user.recipes.build(recipe_params)
 
-    if @recipe.save
-      render json: RecipeSerializer.new(@recipe), status: :ok
+    if recipe.save
+      render json: RecipeSerializer.new(recipe), status: :ok
     else
       resp = {
-        error: @recipe.errors.full_messages.to_sentence
+        error: recipe.errors.full_messages.to_sentence
       }
       render json: resp, status: :unprocessable_entity
     end
