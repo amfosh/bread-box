@@ -2,7 +2,6 @@ import React from 'react'
 import { updateRecipeForm } from '../actions/recipeForm'
 import { connect } from 'react-redux'
 
-
 const RecipeForm = ({ formData, userId, updateRecipeForm, handleSubmit, editMode, recipe }) => {
 
   const { label, ingredientLines, directions, image } = formData
@@ -23,13 +22,14 @@ const RecipeForm = ({ formData, userId, updateRecipeForm, handleSubmit, editMode
           placeholder="label"
           value={label}
         /><br/>
-        <input 
+        <textarea 
           name="ingredientLines"
           onChange={handleChange}
           placeholder="ingredient lines"
           value={ingredientLines}
+          
         /><br/>
-        <input 
+        <textarea 
           name="directions"
           onChange={handleChange}
           placeholder="directions"
