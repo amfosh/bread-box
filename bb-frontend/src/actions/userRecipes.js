@@ -1,4 +1,5 @@
 import { resetRecipeForm } from './recipeForm' 
+import bread from '../bread-default.jpg'
 
 const recipeUrl = "http://localhost:3000/api/v1/recipes/"
 
@@ -64,7 +65,7 @@ export const createRecipe = (recipeData, history) => {
             label: recipeData.label,
             ingredient_lines: recipeData.ingredientLines,
             directions: recipeData.directions,
-            image: recipeData.image,
+            image: recipeData.image.length > 0 ? recipeData.image : bread,
             user_id: recipeData.userId
         }
         return fetch(recipeUrl, {

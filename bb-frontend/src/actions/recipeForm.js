@@ -17,7 +17,7 @@ export const setDataForEdit = recipe => {
         label: recipe.attributes.label,
         directions: recipe.attributes.directions,
         ingredientLines: recipe.attributes.ingredient_lines,
-        image: recipe.attributes.image
+        image: recipe.attributes.image 
     }
     return {
         type: "SET_DATA_FOR_EDIT",
