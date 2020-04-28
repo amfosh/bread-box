@@ -4,7 +4,6 @@ import { setDataForEdit, resetRecipeForm } from '../actions/recipeForm'
 import RecipeForm from '../components/RecipeForm'
 import { connect } from 'react-redux'
 
-
 class EditFormContainer extends React.Component { 
     componentDidMount(){
         this.props.recipe && this.props.setDataForEdit(this.props.recipe)

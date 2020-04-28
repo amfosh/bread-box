@@ -11,8 +11,8 @@ import Home from './components/Home'
 import NewFormContainer from './containers/NewFormContainer'
 import EditFormContainer from './containers/EditFormContainer'
 import About from './components/About';
-import { Route, Switch, withRouter } from 'react-router-dom'
-import logo from './bread-logo.png'
+import { Route, Switch, withRouter } from 'react-router-dom';
+import Header from './components/Header';
 
 class App extends Component {
 
@@ -24,7 +24,7 @@ class App extends Component {
     const { loggedIn, recipes } = this.props
     return (
       <div className="App">
-        <App-header><img src={logo} alt="logo"/></App-header>
+        <Header/>
         { loggedIn ? <NavBar/> : ""}
         <Switch>
           <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/>
@@ -44,7 +44,6 @@ class App extends Component {
           }
         }/>
         </Switch>
-        <footer/>
       </div>
       );
     }
