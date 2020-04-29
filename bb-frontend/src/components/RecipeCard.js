@@ -5,7 +5,7 @@ import bread from '../bread-default.jpg'
 const RecipeCard = ({ recipe }) => {
     return (
         recipe ?
-        <div>
+        <div className="recipe-card">
             <h2>{recipe.attributes.label}</h2>
             <p><img src={recipe.attributes.image.length > 0 ? recipe.attributes.image : bread } width="300" height = "300" alt="bread"/></p>
             <h3>Ingredients:</h3>
@@ -13,7 +13,8 @@ const RecipeCard = ({ recipe }) => {
             <h3>Directions:</h3>
             <p>{recipe.attributes.directions}</p>
             <button><Link to={`/recipes/${recipe.id}/edit`}>Edit Recipe</Link></button>
-            <br/></div> :
+            <br/>
+        </div> :
         <p>No recipe found.</p>
     )
 }
