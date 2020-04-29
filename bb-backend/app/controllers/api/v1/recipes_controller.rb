@@ -32,13 +32,14 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def update
-    if @recipe.update(recipe_params)
-      render json: RecipeSerializer.new(@recipe), status: 200
+    if recipe = Recipe.find(params[:id])
+      recipe.update(recipe_params)
+      render json: RecipeSerializer.new(recipe), status: 200
     else
       resp = {
-        error: @recipe.errors.full_messages.to_sentence
+        error: recipe.errors.full_messages.to_sentence
       }
-      render json: @recipe.errors, status: 400
+      render json: recipe.errors, status: 400
     end
   end
 
