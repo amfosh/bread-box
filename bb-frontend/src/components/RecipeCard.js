@@ -12,7 +12,7 @@ const RecipeCard = ({ recipe }) => {
             <p>{recipe.attributes.ingredient_lines}</p>
             <h3>Directions:</h3>
             <p>{recipe.attributes.directions}</p>
-            <Link to={`/recipes/${recipe.id}/edit`}>Edit Recipe</Link>
+            <button><Link to={`/recipes/${recipe.id}/edit`}>Edit Recipe</Link></button>
             <br/></div> :
         <p>No recipe found.</p>
     )
