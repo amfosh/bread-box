@@ -6,7 +6,7 @@ class Api::V1::RecipesController < ApplicationController
 
     recipes = current_user.recipes
 
-    render json: RecipeSerializer.new(recipes)
+    render json: RecipeSerializer.new(recipes.order(created_at: :desc))
     else 
       render json: {
         error: "You must be logged in to see that!"
