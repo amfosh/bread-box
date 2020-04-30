@@ -21,7 +21,6 @@ class App extends Component {
     this.props.getCurrentUser()
   }
   
-
   render() {
     const { loggedIn, recipes } = this.props
     return (
@@ -31,7 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={()=> loggedIn ? <RecipeList/> : <Home/>}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+          <Route exact path='/signup' component={Signup}/>
           <Route exact path='/recipes' component={RecipeList}/>
           <Route exact path='/recipes/new' component={NewFormContainer}/>
           <Route exact path="/about" component={About} />
