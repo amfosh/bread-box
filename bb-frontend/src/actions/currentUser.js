@@ -2,7 +2,6 @@ import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
 import { getUserRecipes, clearRecipes } from './userRecipes'
 
-//sync
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
@@ -15,7 +14,7 @@ export const clearCurrentUser = () => {
         type: "CLEAR_CURRENT_USER"
     }
 }
-//async
+
 export const login = (credentials, history) => {
 
     return dispatch => {

@@ -20,6 +20,7 @@ class App extends Component {
   componentDidMount() {
     this.props.getCurrentUser()
   }
+  
 
   render() {
     const { loggedIn, recipes } = this.props
