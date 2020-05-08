@@ -18,7 +18,6 @@ const RecipeList = props => (
 
 const mapStateToProps = state => {
     return {
-        // recipes: state.userRecipes
         recipes: state.userRecipes.filter(
             r =>
               r.attributes.label.toLowerCase().includes(state.searchText.toLowerCase())

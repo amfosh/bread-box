@@ -81,11 +81,11 @@ export const createRecipe = (recipeData, history) => {
                 if (res.error) {
                     alert(res.error)
                 } else {
-                dispatch(addRecipe(res.data))
-                dispatch(resetRecipeForm())
-                history.push(`/recipes/${res.data.id}`)
-            }
-        })
+                    dispatch(addRecipe(res.data))
+                    dispatch(resetRecipeForm())
+                    history.push(`/recipes/${res.data.id}`)
+                }
+            })
             .catch(console.log)
     }
 }
@@ -112,10 +112,10 @@ export const updateRecipe = (recipeData, history) => {
                 if (res.error) {
                     alert(res.error)
                 } else {
-                dispatch(updateRecipeSuccess(res.data))
-                history.push(`/recipes/${res.data.id}`)
-            }
-        })
+                    dispatch(updateRecipeSuccess(res.data))
+                    history.push(`/recipes/${res.data.id}`)
+                }
+            })
             .catch(console.log)
     }
 }
