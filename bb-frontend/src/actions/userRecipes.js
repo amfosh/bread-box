@@ -66,7 +66,8 @@ export const createRecipe = (recipeData, history) => {
             ingredient_lines: recipeData.ingredientLines,
             directions: recipeData.directions,
             image: recipeData.image.length > 0 ? recipeData.image : bread,
-            user_id: recipeData.userId
+            user_id: recipeData.userId,
+            liked: false
         }
         return fetch(recipeUrl, {
             credentials: "include",
