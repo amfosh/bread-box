@@ -62,6 +62,6 @@ class Api::V1::RecipesController < ApplicationController
     end
   
     def recipe_params
-      params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines)
+      params.require(:recipe).permit(:label, :image, :directions, :ingredient_lines, :liked)
     end
 end

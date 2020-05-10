@@ -5,6 +5,6 @@ import LikeButton from './LikeButton'
 const RecipeListCard = ({ recipe }) => (
     <div className="card"><Link to={`/recipes/${recipe.id}`}>
         <h4>{recipe.attributes.label}</h4></Link>
-        <p><img src={ recipe.attributes.image } width="300" height = "300" alt='bread'/></p><LikeButton/></div>
+        <p><img src={ recipe.attributes.image } width="300" height = "300" alt='bread'/></p></div>
 )
 export default RecipeListCard;

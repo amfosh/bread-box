@@ -19,7 +19,7 @@ class LikeButton extends React.Component {
     render() {
         let label = this.state.liked ? "♥" : "♡";
         return ( 
-        <button className="like-button" onClick={this.handleClick}>{label}</button>
+        <button className="like-button" onClick={this.handleClick} id={this.props.recipeId}>{label}</button>
         )
     }
 }
