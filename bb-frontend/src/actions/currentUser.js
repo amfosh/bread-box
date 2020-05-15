@@ -102,5 +102,6 @@ export const signup = (credentials, history) => {
         } 
     })
     .catch(console.log)
+    // hello
     }
 }
