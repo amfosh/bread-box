@@ -19,7 +19,7 @@ export const login = (credentials, history) => {
 
     return dispatch => {
         dispatch(clearCurrentUser())
-        return fetch("http://localhost:3000/api/v1/login", {
+        return fetch("https://breadbox-app-api.herokuapp.com/api/v1/login", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -46,7 +46,7 @@ export const logout = () => {
     return (dispatch) => {
         dispatch(clearCurrentUser())
         dispatch(clearRecipes())
-        return fetch('http://localhost:3000/api/v1/logout', {
+        return fetch('https://breadbox-app-api.herokuapp.com/api/v1/logout', {
         credentials: "include",
         method: "DELETE"
     })
@@ -56,7 +56,7 @@ export const logout = () => {
 export const getCurrentUser = () => {
 
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/get_current_user", {
+        return fetch("https://breadbox-app-api.herokuapp.com/api/v1/get_current_user", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -82,7 +82,7 @@ export const signup = (credentials, history) => {
         const userInfo = {
             user: credentials
         }
-        return fetch("http://localhost:3000/api/v1/signup", {
+        return fetch("https://breadbox-app-api.herokuapp.com/api/v1/signup", {
             credentials: "include",
             method: "POST",
             headers: {

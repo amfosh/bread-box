@@ -1,7 +1,7 @@
 import { resetRecipeForm } from './recipeForm' 
 import bread from '../bread-default.jpg'
 
-const recipeUrl = "http://localhost:3000/api/v1/recipes/"
+const recipeUrl = "https://breadbox-app-api.herokuapp.com/api/v1/recipes/"
 
 export const setUserRecipes = recipes => {
     return {
