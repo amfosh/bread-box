@@ -23,7 +23,8 @@ export const login = (credentials, history) => {
             credentials: "include",
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Origin": "https://bread-box-react.netlify.app"
             },
             body: JSON.stringify(credentials)
         })
